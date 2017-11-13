@@ -15,16 +15,18 @@
 <ion-content padding>
   <ion-item>
     <ion-label stacked>Name</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input [(ngModel)] = "shoppingItem.description" type="text"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Quantity</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input [(ngModel)] = "shoppingItem.quantity" type="number"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label stacked>Price</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-input [(ngModel)] = "shoppingItem.price" type="number"></ion-input>
+  </ion-item>  
+  <button ion-button full color="secondary">Save</button>
 </ion-content>
+
