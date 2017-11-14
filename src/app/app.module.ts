@@ -7,6 +7,7 @@ import {AngularFireModule } from 'angularfire2'
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './FireBaseConfig';
 import {AngularFireDatabaseModule} from 'angularfire2/database'
+import { ShoppingProvider } from '../providers/shopping/shopping.service';
 @NgModule({
   declarations: [
     MyApp
@@ -26,7 +27,8 @@ import {AngularFireDatabaseModule} from 'angularfire2/database'
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ShoppingProvider
   ]
 })
 export class AppModule {}
