@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { IonicPage } from 'ionic-angular/navigation/ionic-page';
 import { ShoppingProvider } from '../../providers/shopping/shopping.service';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireList } from 'angularfire2/database';
 
 
 @IonicPage()
@@ -14,13 +15,17 @@ import { Observable } from 'rxjs/Observable';
 export class HomePage {
 
   shoppingList$: Observable <Item[]>;
+  
+
 
   constructor(public navCtrl: NavController,
-
               private service : ShoppingProvider) {
   this.shoppingList$ = this.service.getShopppigList().snapshotChanges()
                                    .map(changes => {return changes.map(c=>({key: c.payload.key, ...c.payload.val()}))});
-                      
+
+
+  // console.log(this.shoppingList);
+                    
 
   }
 }
