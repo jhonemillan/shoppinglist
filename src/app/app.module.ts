@@ -8,6 +8,7 @@ import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from './FireBaseConfig';
 import {AngularFireDatabaseModule} from 'angularfire2/database'
 import { ShoppingProvider } from '../providers/shopping/shopping.service';
+import { ToastProvider } from '../providers/toast/toast';
 @NgModule({
   declarations: [
     MyApp
@@ -28,7 +29,8 @@ import { ShoppingProvider } from '../providers/shopping/shopping.service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ShoppingProvider
+    ShoppingProvider,
+    ToastProvider
   ]
 })
 export class AppModule {}

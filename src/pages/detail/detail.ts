@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Item } from '../../models/item.model';
 import { ShoppingProvider } from '../../providers/shopping/shopping.service';
-
+import { ToastProvider } from '../../providers/toast/toast';
 
 /**
  * Generated class for the DetailPage page.
@@ -21,7 +21,8 @@ export class DetailPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private service: ShoppingProvider) {
+              private service: ShoppingProvider,
+              private serviceToast: ToastProvider) {
     
     this.currentItem = navParams.get('item');
   }
@@ -32,6 +33,7 @@ export class DetailPage {
 
   saveItem(){
     this.service.editItem(this.currentItem).then(()=>{
+      this.serviceToast.show(`The ${this.currentItem.description} has been saved`);
       this.navCtrl.setRoot('HomePage');
     });
   }
