@@ -38,4 +38,11 @@ export class DetailPage {
     });
   }
 
+  deleteItem(){
+    this.service.deleteItem(this.currentItem).then(()=>{
+      this.navCtrl.setRoot('HomePage');
+      this.serviceToast.show(`The ${this.currentItem.description} has been deleted`);
+    })
+  }
+
 }

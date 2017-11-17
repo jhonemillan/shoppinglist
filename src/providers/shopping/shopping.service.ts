@@ -25,8 +25,8 @@ export class ShoppingProvider {
     return this.shoppingItems.update(currentItem.key,currentItem);
   }
 
-  // deleteItem(currentItem: Item){
-  //   return this.shoppingItems.remove(currentItem)
-  // }
+  deleteItem(currentItem: Item){
+    return this.shoppingItems.remove(currentItem.key)
+  }
 
 }
